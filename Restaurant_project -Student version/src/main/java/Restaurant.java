@@ -16,14 +16,13 @@ public class Restaurant {
         this.openingTime = openingTime;
         this.closingTime = closingTime;
     }
+
     public boolean isRestaurantOpen() {
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
         return getCurrentTime().isAfter(this.openingTime) && getCurrentTime().isBefore(this.closingTime);
     }
 
-    public LocalTime getCurrentTime(){
-        return  LocalTime.now();
-    }
+    public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
     public List<Item> getMenu() {
         //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
@@ -62,15 +61,6 @@ public class Restaurant {
 
     public String getName() {
         return name;
-    }
-
-    public int getTotalOrderCost(List<String> selectedItem){
-
-        int totalCost = 0;
-        for(String item : selectedItem){
-            totalCost = totalCost + findItemByName(item).getPrice();
-        }
-        return totalCost;
     }
 
 }

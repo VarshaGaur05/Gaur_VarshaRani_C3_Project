@@ -4,18 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
-    RestaurantService service = new RestaurantService();
     Restaurant restaurant;
-
-
+    RestaurantService service = new RestaurantService();
     //REFACTOR ALL THE REPEATED LINES OF CODE
-
     @BeforeEach
     private void createMockRestaurant() {
         LocalTime openingTime = LocalTime.parse("10:30:00");
@@ -24,7 +19,6 @@ class RestaurantTest {
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
-
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
@@ -65,18 +59,8 @@ class RestaurantTest {
     }
     @Test
     public void removing_item_that_does_not_exist_should_throw_exception() {
-                assertThrows(itemNotFoundException.class,
+        assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    //<<<<<<<<<<<<<Total Cost>>>>>>>>>>>>>>>>>>>>>>>>>
-    @Test
-    public void select_items_from_list_should_return_order_cost(){
-        int totalCost;
-        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne" ) ;
-        totalCost = restaurant.getTotalOrderCost(selectedItems) ;
-        assertEquals(388, totalCost);
-
-    }
 }

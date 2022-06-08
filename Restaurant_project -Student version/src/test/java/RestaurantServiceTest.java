@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class RestaurantServiceTest {
-     RestaurantService service = new RestaurantService();
+
+    RestaurantService service = new RestaurantService();
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
 
@@ -14,12 +15,10 @@ class RestaurantServiceTest {
     private void createMockRestaurant() {
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
-        restaurant = service.addRestaurant("Amelie's cafe", "Chennai", openingTime, closingTime);
+        restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
-
     }
-
 
     //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
@@ -27,8 +26,6 @@ class RestaurantServiceTest {
         //WRITE UNIT TEST CASE HERE
         assertEquals(restaurant.getName(),service.findRestaurantByName("Amelie's cafe").getName());
     }
-
-
 
     //You may watch the video by Muthukumaran on how to write exceptions in Course 3: Testing and Version control: Optional content
     @Test
