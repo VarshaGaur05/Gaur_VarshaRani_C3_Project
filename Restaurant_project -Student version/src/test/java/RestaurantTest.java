@@ -63,4 +63,13 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+
+    public  void select_items_from_list_should_return_order_cost(){
+        int totalCost;
+        List<String> selectedItems = Arrays.asList("Sweet corn soup", "Vegetable lasagne" ) ;
+        totalCost = restaurant.getTotalCost(selectedItems) ;
+        assertEquals(388, totalCost);
+    }
 }
